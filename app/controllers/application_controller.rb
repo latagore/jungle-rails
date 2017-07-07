@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   private
+  def user
+    @current_user ||= User.find_by id: session[:user_id]
+  end
+  helper_method :user
+
+  def logged_in?
+    user != nil
+  end
+  helper_method :logged_in?
 
   def cart
     # value = cookies[:cart] || JSON.generate({})

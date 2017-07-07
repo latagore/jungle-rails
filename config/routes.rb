@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :new]
 
+  get '/register' => 'users#new'
+  post '/users' => 'users#create'
+
   # session routes
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
