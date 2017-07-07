@@ -1,5 +1,5 @@
 class ReceiptMailer < ActionMailer::Base
-  default from: "receipt@jungleexample.com"
+  default from: "no-reply@jungle.com"
 
   def receipt_email(order)
     @order = order

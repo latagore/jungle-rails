@@ -53,6 +53,9 @@ class OrdersController < ApplicationController
       end
     end
     order.save!
+    # Sends email to user when user is created.
+    ReceiptMailer.receipt_email(order).deliver
+
     order
   end
 
